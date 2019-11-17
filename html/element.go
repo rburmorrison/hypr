@@ -8,6 +8,7 @@ import (
 // Element represents a generic HTML element.
 type Element struct {
 	Tag      string
+	Text     string
 	Children []Element
 
 	attrs map[string]string
