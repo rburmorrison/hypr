@@ -27,3 +27,14 @@ func TestBasicDocument(t *testing.T) {
 
 	assertExpectation(t, expected, buf.String())
 }
+
+func TestBaseDocument(t *testing.T) {
+	expected := `<!DOCTYPE html><html><head></head><body></body></html>`
+
+	var buf bytes.Buffer
+	doc := NewDocument()
+	doc.AddChild(NewHTML(NewHead(), NewBody()))
+	doc.Write(&buf)
+
+	assertExpectation(t, expected, buf.String())
+}

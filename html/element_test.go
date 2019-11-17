@@ -113,3 +113,13 @@ func TestNewH3(t *testing.T) {
 
 	assertExpectation(t, expected, buf.String())
 }
+
+func TestNewHTML(t *testing.T) {
+	expected := `<html><head></head><body></body></html>`
+
+	var buf bytes.Buffer
+	h := NewHTML(NewHead(), NewBody())
+	h.Write(&buf)
+
+	assertExpectation(t, expected, buf.String())
+}

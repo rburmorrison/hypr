@@ -79,20 +79,24 @@ func NewH3(text string) Element {
 
 // NewHead creates a new head tag with the specified children.
 func NewHead(children ...Element) Element {
-	head := NewTagElement("head")
-	for _, el := range children {
-		head.AddChild(el)
-	}
-
-	return head
+	return newWithChildren("head", children)
 }
 
 // NewBody creates a new body tag with the specified children.
 func NewBody(children ...Element) Element {
-	head := NewTagElement("body")
-	for _, el := range children {
-		head.AddChild(el)
+	return newWithChildren("body", children)
+}
+
+// NewHTML creates a new html tag with the specified children.
+func NewHTML(children ...Element) Element {
+	return newWithChildren("html", children)
+}
+
+func newWithChildren(tag string, children []Element) Element {
+	el := NewTagElement(tag)
+	for _, child := range children {
+		el.AddChild(child)
 	}
 
-	return head
+	return el
 }
