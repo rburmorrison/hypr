@@ -21,17 +21,17 @@ func NewLink(link, text string) Element {
 	return a
 }
 
-// NewOL creates a new Element preformatted as an 
+// NewOL creates a new Element preformatted as an
 // unordered list and returns a reference to it.
 func NewOL() Element {
-	ol := NewTag("ol")
+	ol := NewTagElement("ol")
 	return ol
 }
 
-// NewUL creates a new Element preformatted as an 
+// NewUL creates a new Element preformatted as an
 // unordered list and returns a reference to it.
 func NewUL() Element {
-	ul := NewTag("ul")
+	ul := NewTagElement("ul")
 	return ul
 }
 
@@ -44,4 +44,3 @@ func NewLI(text string) Element {
 
 	return li
 }
-
