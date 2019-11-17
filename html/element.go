@@ -20,3 +20,28 @@ func NewLink(link, text string) Element {
 
 	return a
 }
+
+// NewOL creates a new Element preformatted as an 
+// unordered list and returns a reference to it.
+func NewOL() Element {
+	ol := NewTag("ol")
+	return ol
+}
+
+// NewUL creates a new Element preformatted as an 
+// unordered list and returns a reference to it.
+func NewUL() Element {
+	ul := NewTag("ul")
+	return ul
+}
+
+// NewLI creates a new Element preformatted as
+// an item in an ordered or unordered list and
+// returns a reference to it.
+func NewLI(text string) Element {
+	li := NewTagElement("li")
+	li.AddChild(NewTextElement(text))
+
+	return li
+}
+
