@@ -1,0 +1,12 @@
+= Elements =
+
+The following elements need to be supported:
+
+- [ ] Document
+- [ ] head
+- [ ] body
+- [ ] html
+- [ ] a
+- [ ] ul
+- [ ] ol
+- [ ] li
