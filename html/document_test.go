@@ -6,7 +6,7 @@ import (
 )
 
 func TestEmptyDocument(t *testing.T) {
-	expected := `<!DOCTYPE html><html></html>`
+	expected := `<!DOCTYPE html>`
 
 	var buf bytes.Buffer
 	doc := NewDocument()
