@@ -2,11 +2,17 @@
 
 The following elements need to be supported:
 
-- [ ] Document
+- [x] Document
+- [x] a
+- [x] ul
+- [x] ol
+- [x] li
 - [ ] head
 - [ ] body
 - [ ] html
-- [ ] a
-- [ ] ul
-- [ ] ol
-- [ ] li
+- [ ] Table
+- [ ] Table Row
+- [ ] Header (Generic)
+- [ ] Header 1
+- [ ] Header 2
+- [ ] Header 3

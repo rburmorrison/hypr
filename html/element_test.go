@@ -75,10 +75,10 @@ func TestNewHeader(t *testing.T) {
 
 	assertExpectation(t, expected, buf.String())
 
-	expected = `<h9>Heading 9</h9>`
+	expected = `<h6>Heading 6</h6>`
 
 	buf = bytes.Buffer{}
-	h = NewHeader(10, "Heading 9")
+	h = NewHeader(10, "Heading 6")
 	h.Write(&buf)
 
 	assertExpectation(t, expected, buf.String())
