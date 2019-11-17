@@ -123,3 +123,26 @@ func TestNewHTML(t *testing.T) {
 
 	assertExpectation(t, expected, buf.String())
 }
+
+func TestNewPara(t *testing.T) {
+	expected := `<p>Hello, world!</p>`
+
+	var buf bytes.Buffer
+	p := NewPara("Hello, world!")
+	p.Write(&buf)
+
+	assertExpectation(t, expected, buf.String())
+}
+
+func TestNewDiv(t *testing.T) {
+	expected := `<div><h1>My Title</h1><p>Hello, world!</p></div>`
+
+	var buf bytes.Buffer
+	div := NewDiv(
+		NewH1("My Title"),
+		NewPara("Hello, world!"),
+	)
+	div.Write(&buf)
+
+	assertExpectation(t, expected, buf.String())
+}

@@ -92,6 +92,19 @@ func NewHTML(children ...Element) Element {
 	return newWithChildren("html", children)
 }
 
+// NewPara creates a new paragraph tag with the given text.
+func NewPara(text string) Element {
+	p := NewTagElement("p")
+	p.AddChild(NewTextElement(text))
+
+	return p
+}
+
+// NewDiv creates a div tag with the given children.
+func NewDiv(children ...Element) Element {
+	return newWithChildren("div", children)
+}
+
 func newWithChildren(tag string, children []Element) Element {
 	el := NewTagElement(tag)
 	for _, child := range children {
