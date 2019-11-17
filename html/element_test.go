@@ -57,3 +57,59 @@ func TestNewUL(t *testing.T) {
 
 	assertExpectation(t, expected, buf.String())
 }
+
+func TestNewHeader(t *testing.T) {
+	expected := `<h5>Heading 5</h5>`
+
+	var buf bytes.Buffer
+	h := NewHeader(5, "Heading 5")
+	h.Write(&buf)
+
+	assertExpectation(t, expected, buf.String())
+
+	expected = `<h1>Heading 1</h1>`
+
+	buf = bytes.Buffer{}
+	h = NewHeader(0, "Heading 1")
+	h.Write(&buf)
+
+	assertExpectation(t, expected, buf.String())
+
+	expected = `<h9>Heading 9</h9>`
+
+	buf = bytes.Buffer{}
+	h = NewHeader(10, "Heading 9")
+	h.Write(&buf)
+
+	assertExpectation(t, expected, buf.String())
+}
+
+func TestNewH1(t *testing.T) {
+	expected := `<h1>Heading 1</h1>`
+
+	var buf bytes.Buffer
+	h := NewH1("Heading 1")
+	h.Write(&buf)
+
+	assertExpectation(t, expected, buf.String())
+}
+
+func TestNewH2(t *testing.T) {
+	expected := `<h2>Heading 2</h2>`
+
+	var buf bytes.Buffer
+	h := NewH2("Heading 2")
+	h.Write(&buf)
+
+	assertExpectation(t, expected, buf.String())
+}
+
+func TestNewH3(t *testing.T) {
+	expected := `<h1>Heading 3</h1>`
+
+	var buf bytes.Buffer
+	h := NewH3("Heading 3")
+	h.Write(&buf)
+
+	assertExpectation(t, expected, buf.String())
+}
