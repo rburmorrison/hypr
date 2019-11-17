@@ -15,7 +15,7 @@ func NewTextElement(text string) *TextElement {
 }
 
 func (e *TextElement) Write(w io.Writer) {
-	fmt.Fprint(w, e)
+	fmt.Fprint(w, string(*e))
 }
 
 // AddAttr is only implemented to make TextElement an Element.

@@ -20,6 +20,8 @@ func TestBasicDocument(t *testing.T) {
 
 	var buf bytes.Buffer
 	doc := NewDocument()
+	doc.AddChild(NewHead())
+	doc.AddChild(NewBody())
 
 	doc.Write(&buf)
 

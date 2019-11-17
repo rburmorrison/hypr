@@ -30,6 +30,10 @@ func (e *TagElement) Write(w io.Writer) {
 	}
 	fmt.Fprint(w, ">")
 
+	for _, child := range e.Children {
+		child.Write(w)
+	}
+
 	fmt.Fprintf(w, "</%s>", e.Tag)
 }
 
@@ -39,6 +43,6 @@ func (e *TagElement) AddAttr(k, v string) {
 }
 
 // AddChild adds a child node to the element.
-func (e *TagElement) AddChild(Element) {
-	e.Children = append(e.Children)
+func (e *TagElement) AddChild(child Element) {
+	e.Children = append(e.Children, child)
 }

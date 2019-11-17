@@ -105,7 +105,7 @@ func TestNewH2(t *testing.T) {
 }
 
 func TestNewH3(t *testing.T) {
-	expected := `<h1>Heading 3</h1>`
+	expected := `<h3>Heading 3</h3>`
 
 	var buf bytes.Buffer
 	h := NewH3("Heading 3")

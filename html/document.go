@@ -21,3 +21,8 @@ func (d *Document) Write(w io.Writer) {
 		child.Write(w)
 	}
 }
+
+// AddChild appends the given child to the document's children.
+func (d *Document) AddChild(child Element) {
+	d.Children = append(d.Children, child)
+}
