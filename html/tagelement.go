@@ -15,11 +15,12 @@ type TagElement struct {
 
 // NewTagElement creates a new TagElement and returns a
 // reference to it.
-func NewTagElement() *TagElement {
-	var el *TagElement
+func NewTagElement(tag string) *TagElement {
+	var el TagElement
+	el.Tag = tag
 	el.attrs = make(map[string]string)
 
-	return el
+	return &el
 }
 
 func (e *TagElement) Write(w io.Writer) {
@@ -28,6 +29,8 @@ func (e *TagElement) Write(w io.Writer) {
 		fmt.Fprintf(w, " %s=%q", k, v)
 	}
 	fmt.Fprint(w, ">")
+
+	fmt.Fprintf(w, "</%s>", e.Tag)
 }
 
 // AddAttr sets the key in the attribute map.
