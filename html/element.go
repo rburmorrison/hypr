@@ -24,12 +24,14 @@ func NewLink(link, text string) Element {
 // NewOL creates a new Element preformatted as an unordered list and returns a reference to it.
 func NewOL(children ...Element) Element {
 	ol := NewTagElement("ol")
+	ol.Add(children...)
 	return ol
 }
 
 // NewUL creates a new Element preformatted as an unordered list and returns a reference to it.
-func NewUL() Element {
+func NewUL(children ...Element) Element {
 	ul := NewTagElement("ul")
+	ul.Add(children...)
 	return ul
 }
 

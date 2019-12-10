@@ -146,3 +146,15 @@ func TestNewDiv(t *testing.T) {
 
 	assertExpectation(t, expected, buf.String())
 }
+
+// TestTextElement_Add exists only to provide full coverage for the TextElement.
+func TestTextElement_Add(t *testing.T) {
+	e := NewTextElement("Hello, world!")
+	e.Add(NewTextElement("Invalid"))
+}
+
+// TestTextElement_AddAttr exists only to provide full coverage for the TextElement.
+func TestTextElement_AddAttr(t *testing.T) {
+	e := NewTextElement("Hello, world!")
+	e.AddAttr("key", "value")
+}
