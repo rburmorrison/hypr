@@ -13,8 +13,7 @@ type TagElement struct {
 	attrs map[string]string
 }
 
-// NewTagElement creates a new TagElement and returns a
-// reference to it.
+// NewTagElement creates a new TagElement and returns a reference to it.
 func NewTagElement(tag string) *TagElement {
 	var el TagElement
 	el.Tag = tag
@@ -43,6 +42,9 @@ func (e *TagElement) AddAttr(k, v string) {
 }
 
 // AddChild adds a child node to the element.
-func (e *TagElement) AddChild(child Element) {
+func (e *TagElement) Add(child Element, children ...Element) {
 	e.Children = append(e.Children, child)
+	for _, c := range children {
+		e.Children = append(e.Children, c)
+	}
 }

@@ -41,7 +41,7 @@ func TestNewOL(t *testing.T) {
 
 	var buf bytes.Buffer
 	ol := NewOL()
-	ol.AddChild(NewLI("Ordered Item 1"))
+	ol.Add(NewLI("Ordered Item 1"))
 	ol.Write(&buf)
 
 	assertExpectation(t, expected, buf.String())
@@ -52,7 +52,7 @@ func TestNewUL(t *testing.T) {
 
 	var buf bytes.Buffer
 	ol := NewUL()
-	ol.AddChild(NewLI("Unordered Item 1"))
+	ol.Add(NewLI("Unordered Item 1"))
 	ol.Write(&buf)
 
 	assertExpectation(t, expected, buf.String())

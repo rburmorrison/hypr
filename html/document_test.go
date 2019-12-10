@@ -20,8 +20,8 @@ func TestBasicDocument(t *testing.T) {
 
 	var buf bytes.Buffer
 	doc := NewDocument()
-	doc.AddChild(NewHead())
-	doc.AddChild(NewBody())
+	doc.Add(NewHead())
+	doc.Add(NewBody())
 
 	doc.Write(&buf)
 
@@ -33,7 +33,7 @@ func TestBaseDocument(t *testing.T) {
 
 	var buf bytes.Buffer
 	doc := NewDocument()
-	doc.AddChild(NewHTML(NewHead(), NewBody()))
+	doc.Add(NewHTML(NewHead(), NewBody()))
 	doc.Write(&buf)
 
 	assertExpectation(t, expected, buf.String())

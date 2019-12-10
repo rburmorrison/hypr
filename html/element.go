@@ -9,45 +9,40 @@ import (
 type Element interface {
 	Write(w io.Writer)
 	AddAttr(k, v string)
-	AddChild(Element)
+	Add(Element, ...Element)
 }
 
-// NewLink creates a new Element preformatted as an anchor and returns a
-// reference to it.
+// NewLink creates a new Element preformatted as an anchor and returns a reference to it.
 func NewLink(link, text string) Element {
 	a := NewTagElement("a")
-	a.AddChild(NewTextElement(text))
+	a.Add(NewTextElement(text))
 	a.AddAttr("href", link)
 
 	return a
 }
 
-// NewOL creates a new Element preformatted as an unordered list and returns a
-// reference to it.
+// NewOL creates a new Element preformatted as an unordered list and returns a reference to it.
 func NewOL() Element {
 	ol := NewTagElement("ol")
 	return ol
 }
 
-// NewUL creates a new Element preformatted as an unordered list and returns a
-// reference to it.
+// NewUL creates a new Element preformatted as an unordered list and returns a reference to it.
 func NewUL() Element {
 	ul := NewTagElement("ul")
 	return ul
 }
 
-// NewLI creates a new Element preformatted as an item in an ordered or
-// unordered list and returns a reference to it.
+// NewLI creates a new Element preformatted as an item in an ordered or unordered list and returns a reference to it.
 func NewLI(text string) Element {
 	li := NewTagElement("li")
-	li.AddChild(NewTextElement(text))
+	li.Add(NewTextElement(text))
 
 	return li
 }
 
-// NewHeader creates a new TagElement for any header tag from level 1-6 and
-// returns it. If level is less than 1, level will be corrected to 1. If level
-// is greater than 6, level will be corrected to six.
+// NewHeader creates a new TagElement for any header tag from level 1-6 and returns it. If level is less than 1, level
+// will be corrected to 1. If level is greater than 6, level will be corrected to six.
 func NewHeader(level int, text string) Element {
 	if level < 1 {
 		level = 1
@@ -57,7 +52,7 @@ func NewHeader(level int, text string) Element {
 
 	tag := fmt.Sprintf("h%d", level)
 	header := NewTagElement(tag)
-	header.AddChild(NewTextElement(text))
+	header.Add(NewTextElement(text))
 
 	return header
 }
@@ -95,7 +90,7 @@ func NewHTML(children ...Element) Element {
 // NewPara creates a new paragraph tag with the given text.
 func NewPara(text string) Element {
 	p := NewTagElement("p")
-	p.AddChild(NewTextElement(text))
+	p.Add(NewTextElement(text))
 
 	return p
 }
@@ -108,7 +103,7 @@ func NewDiv(children ...Element) Element {
 func newWithChildren(tag string, children []Element) Element {
 	el := NewTagElement(tag)
 	for _, child := range children {
-		el.AddChild(child)
+		el.Add(child)
 	}
 
 	return el

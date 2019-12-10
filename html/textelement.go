@@ -22,4 +22,4 @@ func (e *TextElement) Write(w io.Writer) {
 func (e *TextElement) AddAttr(k, v string) {}
 
 // AddChild is only implemented to make TextElement an Element.
-func (e *TextElement) AddChild(Element) {}
+func (e *TextElement) Add(Element, ...Element) {}
