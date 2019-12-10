@@ -18,8 +18,8 @@ func (e *TextElement) Write(w io.Writer) {
 	fmt.Fprint(w, string(*e))
 }
 
-// AddAttr is only implemented to make TextElement an Element.
-func (e *TextElement) AddAttr(k, v string) {}
+// SetAttr is only implemented to make TextElement an Element.
+func (e *TextElement) SetAttr(k, v string) {}
 
 // AddChild is only implemented to make TextElement an Element.
 func (e *TextElement) Add(...Element) {}

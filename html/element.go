@@ -8,7 +8,7 @@ import (
 // Element represents any HTML element.
 type Element interface {
 	Write(w io.Writer)
-	AddAttr(k, v string)
+	SetAttr(k, v string)
 	Add(...Element)
 }
 
@@ -16,7 +16,7 @@ type Element interface {
 func NewLink(link, text string) Element {
 	a := NewTagElement("a")
 	a.Add(NewTextElement(text))
-	a.AddAttr("href", link)
+	a.SetAttr("href", link)
 
 	return a
 }

@@ -10,7 +10,7 @@ func TestElement(t *testing.T) {
 
 	var buf bytes.Buffer
 	a := NewTagElement("a")
-	a.AddAttr("href", "https://google.com/")
+	a.SetAttr("href", "https://google.com/")
 	a.Write(&buf)
 
 	assertExpectation(t, expected, buf.String())
@@ -156,5 +156,5 @@ func TestTextElement_Add(t *testing.T) {
 // TestTextElement_AddAttr exists only to provide full coverage for the TextElement.
 func TestTextElement_AddAttr(t *testing.T) {
 	e := NewTextElement("Hello, world!")
-	e.AddAttr("key", "value")
+	e.SetAttr("key", "value")
 }

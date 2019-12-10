@@ -36,8 +36,8 @@ func (e *TagElement) Write(w io.Writer) {
 	fmt.Fprintf(w, "</%s>", e.Tag)
 }
 
-// AddAttr sets the key in the attribute map.
-func (e *TagElement) AddAttr(k, v string) {
+// SetAttr sets the key in the attribute map.
+func (e *TagElement) SetAttr(k, v string) {
 	e.attrs[k] = v
 }
 
