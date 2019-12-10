@@ -23,8 +23,7 @@ func (d *Document) Write(w io.Writer) {
 }
 
 // AddChild appends the given children to the document's children.
-func (d *Document) Add(child Element, children ...Element) {
-	d.Children = append(d.Children, child)
+func (d *Document) Add(children ...Element) {
 	for _, c := range children {
 		d.Children = append(d.Children, c)
 	}

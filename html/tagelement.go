@@ -42,8 +42,7 @@ func (e *TagElement) AddAttr(k, v string) {
 }
 
 // AddChild adds a child node to the element.
-func (e *TagElement) Add(child Element, children ...Element) {
-	e.Children = append(e.Children, child)
+func (e *TagElement) Add(children ...Element) {
 	for _, c := range children {
 		e.Children = append(e.Children, c)
 	}

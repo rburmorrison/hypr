@@ -9,7 +9,7 @@ import (
 type Element interface {
 	Write(w io.Writer)
 	AddAttr(k, v string)
-	Add(Element, ...Element)
+	Add(...Element)
 }
 
 // NewLink creates a new Element preformatted as an anchor and returns a reference to it.
@@ -22,7 +22,7 @@ func NewLink(link, text string) Element {
 }
 
 // NewOL creates a new Element preformatted as an unordered list and returns a reference to it.
-func NewOL() Element {
+func NewOL(children ...Element) Element {
 	ol := NewTagElement("ol")
 	return ol
 }
