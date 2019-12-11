@@ -25,7 +25,11 @@ func NewTagElement(tag string) *TagElement {
 func (e *TagElement) Write(w io.Writer) {
 	fmt.Fprintf(w, "<%s", e.Tag)
 	for k, v := range e.attrs {
-		fmt.Fprintf(w, " %s=%q", k, v)
+		if v != "" {
+			fmt.Fprintf(w, " %s=%q", k, v)
+		} else {
+			fmt.Fprintf(w, " %s", k)
+		}
 	}
 	fmt.Fprint(w, ">")
 
@@ -41,9 +45,7 @@ func (e *TagElement) SetAttr(k, v string) {
 	e.attrs[k] = v
 }
 
-// AddChild adds a child node to the element.
+// Add adds a child node to the element.
 func (e *TagElement) Add(children ...Element) {
-	for _, c := range children {
-		e.Children = append(e.Children, c)
-	}
+	e.Children = append(e.Children, children...)
 }

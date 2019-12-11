@@ -147,6 +147,48 @@ func TestNewDiv(t *testing.T) {
 	assertExpectation(t, expected, buf.String())
 }
 
+func TestNewBreak(t *testing.T) {
+	expected := `<br>`
+
+	var buf bytes.Buffer
+	br := NewBreak()
+	br.Write(&buf)
+
+	assertExpectation(t, expected, buf.String())
+}
+
+func TestNewHR(t *testing.T) {
+	expected := `<hr>`
+
+	var buf bytes.Buffer
+	br := NewHR()
+	br.Write(&buf)
+
+	assertExpectation(t, expected, buf.String())
+}
+
+func TestSoloTagElement_SetAttr(t *testing.T) {
+	expected := `<test key="value">`
+
+	var buf bytes.Buffer
+	test := NewSoloTagElement("test")
+	test.SetAttr("key", "value")
+	test.Write(&buf)
+
+	assertExpectation(t, expected, buf.String())
+}
+
+func TestSoloTagElement_Write(t *testing.T) {
+	expected := `<!DOCTYPE html>`
+
+	var buf bytes.Buffer
+	test := NewSoloTagElement("!DOCTYPE")
+	test.SetAttr("html", "")
+	test.Write(&buf)
+
+	assertExpectation(t, expected, buf.String())
+}
+
 // TestTextElement_Add exists only to provide full coverage for the TextElement.
 func TestTextElement_Add(t *testing.T) {
 	e := NewTextElement("Hello, world!")
@@ -157,4 +199,10 @@ func TestTextElement_Add(t *testing.T) {
 func TestTextElement_AddAttr(t *testing.T) {
 	e := NewTextElement("Hello, world!")
 	e.SetAttr("key", "value")
+}
+
+// TestSoloTagElement_Add exists only to provide full coverage for the TextElement.
+func TestSoloTagElement_Add(t *testing.T) {
+	e := NewSoloTagElement("test")
+	e.Add(NewTextElement("Hello, world!"))
 }

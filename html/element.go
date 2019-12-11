@@ -102,6 +102,18 @@ func NewDiv(children ...Element) Element {
 	return newWithChildren("div", children)
 }
 
+// NewBreak creates a break tag.
+func NewBreak() Element {
+	br := NewSoloTagElement("br")
+	return br
+}
+
+// NewHR creates a new hr tag.
+func NewHR() Element {
+	hr := NewSoloTagElement("hr")
+	return hr
+}
+
 func newWithChildren(tag string, children []Element) Element {
 	el := NewTagElement(tag)
 	for _, child := range children {

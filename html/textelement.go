@@ -21,5 +21,5 @@ func (e *TextElement) Write(w io.Writer) {
 // SetAttr is only implemented to make TextElement an Element.
 func (e *TextElement) SetAttr(k, v string) {}
 
-// AddChild is only implemented to make TextElement an Element.
+// Add is only implemented to make TextElement an Element.
 func (e *TextElement) Add(...Element) {}
