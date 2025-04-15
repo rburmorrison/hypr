@@ -1,3 +1,7 @@
+# DEPRECATION NOTICE
+
+This library is deprecated and no longer maintained.
+
 # Hypr
 
 A library for programmatically generating HTML in Go.
